@@ -28,13 +28,17 @@ const SummeryCalc = () => {
     }
 
 
-    // const handleClick = async () => {
-    //     try {
-    //         const data = await axios.post("http://127.0.0.1:5000/")
-    //     } catch (error) {
-    //         console.log(error)
-    //     }
-    // }
+    const handleClick = async () => {
+        try {
+            const result = await axios.post("https://flask-app2-rg15.onrender.com/send_data",{story})
+            console.log(result?.data)
+            if(result?.data){
+                setSummery(result?.data?.summery)
+            }
+        } catch (error) {
+            console.log(error)
+        }
+    }
 
 
     const handleSpeak = () => {
@@ -65,7 +69,7 @@ const SummeryCalc = () => {
         setStory(transcript)
     }, [transcript])
 
-
+console.log(summery)
 
     return (
         <section className='summery'>
@@ -117,9 +121,14 @@ const SummeryCalc = () => {
 
                 </div>
             </div>
-            <button type="submit" value="Build Now" className="builder-btn" id="appDesBuild" disabled="disabled">Summarize</button>
+            <button type="submit" value="Build Now" className="builder-btn" id="appDesBuild"  
+            onClick={handleClick}>Summarize</button>
+            <br></br>
+            <br></br>
+
+            <center><p style={{padding:"0.5rem 0"}}>Developed by Summerizer Team</p></center>
          
-            <div className='select'>
+            {/* <div className='select'>
                   <select  className='custom-select' style={{height:"24px",width:"100%",maxWidth:"200px"}}>
 <option value="af">Afrikaans</option>
 <option value="sq">Albanian</option>
@@ -237,7 +246,7 @@ const SummeryCalc = () => {
 <TranslationComponent summery={summery1}
                         summeryLength={summeryLength1}
                         setSummery={setSummery1}/>
-                </div>  
+                </div>   */}
 
         </section>
     )

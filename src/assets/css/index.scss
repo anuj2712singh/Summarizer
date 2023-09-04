@@ -4,6 +4,8 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Inter", sans-serif;
+  
+   
 }
 
 .summery {
@@ -11,6 +13,7 @@
   background-color: #fff;
   padding: 10px 100px;
   height: 100vh;
+  overflow: auto;
   
   .navbar-logo img {
     height: 130px;
@@ -71,6 +74,8 @@
    justify-content: center;
    align-items: center;
    font-size: 30px;
+   color: #fff;
+  border-radius: 5px;
   }
   .wrap {
     width: 100%;
@@ -128,10 +133,17 @@
             display: flex;
             justify-content: center;
             align-items: center;
+           
             cursor: pointer;
             i {
               color: #949393;
             }
+          }
+          span:hover{
+            background-image: linear-gradient(70deg, #1270E5, #933EC4);
+           i{
+            color: #fff;
+           }
           }
         }
       }
@@ -207,7 +219,13 @@
               color: #949393;
             }
           }
+          span:hover{
+            background-image: linear-gradient(70deg, #1270E5, #933EC4);
+           i{
+            color: #fff;
+           }
         }
+      }
       }
       textarea::-webkit-scrollbar {
         width: 8px;
@@ -310,3 +328,44 @@
     }
   }
 }
+
+.summery::-webkit-scrollbar{
+  display: none;
+}
+
+@media(max-width:900px){
+  section.summery{
+    padding: 10px;
+    .navbar-logo img{
+      width: 1.5rem;
+      height: 1.5rem;
+      object-fit: contain;
+      display: none
+      ;
+    }
+    .top{
+      font-size: 1.2rem;
+    }
+    .builder-btn{
+      width: 100%;
+      border-radius: 5px;
+      box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+      outline: none;
+      border: none;
+    }
+  .wrap{
+    flex-direction: column;
+    .left{
+      width: 100%;
+    }
+    .right{
+      width: 100%;
+    }
+  }
+
+  }
+}
+
+
+
+
